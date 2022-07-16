@@ -9,7 +9,7 @@ function App() {
   const httpRegex = "/^www./";
 
   const checkHttp = (url) => {
-    if (url.includes("http://") || url.includes("https://www.")) {
+    if (url.includes("http://") || url.includes("https://")) {
       return true;
     } else {
       return false;
