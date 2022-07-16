@@ -100,7 +100,7 @@ function App() {
         </div>
       ) : (
         <div className="url-empty">
-          Copy any URL on this window and see the magic!
+          Paste any URL on this window and see the magic!
         </div>
       )}
     </div>
