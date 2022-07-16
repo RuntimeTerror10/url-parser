@@ -9,7 +9,7 @@ function App() {
   const httpRegex = "/^www./";
 
   const checkHttp = (url) => {
-    if (url.includes("http://") || url.includes("https://www.")) {
+    if (url.includes("http://") || url.includes("https://")) {
       return true;
     } else {
       return false;
@@ -99,7 +99,7 @@ function App() {
         </div>
       ) : (
         <div className="url-empty">
-          Copy any URL on this window and see the magic!
+          Paste any URL on this window and see the magic!
         </div>
       )}
     </div>
