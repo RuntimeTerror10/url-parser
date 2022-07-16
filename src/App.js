@@ -17,7 +17,6 @@ function App() {
   };
 
   const copyEvent = (event) => {
-    event.preventDefault();
     let charCode = String.fromCharCode(event.which).toLocaleLowerCase();
     if ((event.ctrlKey || event.metaKey) && charCode === "v") {
       navigator.clipboard.readText().then((text) => {
