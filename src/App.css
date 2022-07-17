@@ -41,25 +41,26 @@
   }
 }
 .pasted-url {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
   font-weight: bold;
   font-size: 1.5em;
 }
 .parsed-container {
   display: flex;
-  gap: 1rem;
-  width: 80%;
-  margin-top: 4rem;
+  justify-content: space-around;
+  margin: 0 2rem;
+  margin-top: 5rem;
+  gap: 2rem;
 }
 .parsed-container > * {
-  flex: 1;
-  padding: 10px;
+  flex: 1 1;
+  padding: 15px;
 }
 .param-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 1rem;
   border: 1px solid #cfcfcf;
 }
 .param-name {
