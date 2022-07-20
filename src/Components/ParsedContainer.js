@@ -1,10 +1,17 @@
 import { ArcherContainer, ArcherElement } from "react-archer";
+import { motion } from "framer-motion";
+
 export const ParsedContainer = ({ parsed }) => {
   return (
     <div className="result">
       <ArcherContainer strokeColor="black" style={{ width: "100%" }}>
         <div className="pasted-url">
-          <div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <ArcherElement
               id="protocol"
               relations={[
@@ -16,10 +23,16 @@ export const ParsedContainer = ({ parsed }) => {
                 },
               ]}
             >
-              <div>{parsed.protocol}//</div>
+              <div className="root-param">
+                <div>{parsed.protocol}//</div>
+              </div>
             </ArcherElement>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <ArcherElement
               id="hostname"
               relations={[
@@ -31,11 +44,17 @@ export const ParsedContainer = ({ parsed }) => {
                 },
               ]}
             >
-              <div>{parsed.hostname}</div>
+              <div className="root-param">
+                <div>{parsed.hostname}</div>
+              </div>
             </ArcherElement>
-          </div>
+          </motion.div>
           {parsed.port ? (
-            <div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
               <ArcherElement
                 id="port"
                 relations={[
@@ -47,11 +66,17 @@ export const ParsedContainer = ({ parsed }) => {
                   },
                 ]}
               >
-                <div>{parsed.port}</div>
+                <div className="root-param">
+                  <div>{parsed.port}</div>
+                </div>
               </ArcherElement>
-            </div>
+            </motion.div>
           ) : null}
-          <div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <ArcherElement
               id="pathname"
               relations={[
@@ -63,11 +88,18 @@ export const ParsedContainer = ({ parsed }) => {
                 },
               ]}
             >
-              <div>{parsed.pathname}</div>
+              <div className="root-param">
+                <div>{parsed.pathname}</div>
+              </div>
             </ArcherElement>
-          </div>
+          </motion.div>
+
           {parsed.search ? (
-            <div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
               <ArcherElement
                 id="search"
                 relations={[
@@ -79,12 +111,18 @@ export const ParsedContainer = ({ parsed }) => {
                   },
                 ]}
               >
-                <div>{parsed.search}</div>
+                <div className="root-param">
+                  <div>{parsed.search}</div>
+                </div>
               </ArcherElement>
-            </div>
+            </motion.div>
           ) : null}
           {parsed.hash ? (
-            <div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
               <ArcherElement
                 id="hash"
                 relations={[
@@ -96,63 +134,73 @@ export const ParsedContainer = ({ parsed }) => {
                   },
                 ]}
               >
-                <div>{parsed.hash}</div>
+                <div className="root-param">
+                  <div>{parsed.hash}</div>
+                </div>
               </ArcherElement>
-            </div>
+            </motion.div>
           ) : null}
-          <div>
-            <ArcherElement
-              id="search"
-              relations={[
-                {
-                  targetId: "search_box",
-                  targetAnchor: "top",
-                  sourceAnchor: "bottom",
-                  style: { strokeWidth: 1.5 },
-                },
-              ]}
+          {parsed.search ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
             >
-              <div>{parsed.search}</div>
-            </ArcherElement>
-          </div>
+              <ArcherElement
+                id="search"
+                relations={[
+                  {
+                    targetId: "search_box",
+                    targetAnchor: "top",
+                    sourceAnchor: "bottom",
+                    style: { strokeWidth: 1.5 },
+                  },
+                ]}
+              >
+                <div className="root-param">
+                  <div>{parsed.search}</div>
+                </div>
+              </ArcherElement>
+            </motion.div>
+          ) : null}
         </div>
         <div className="parsed-container">
-          <div className="param-container">
-            <ArcherElement id="protocol_box">
+          <ArcherElement id="protocol_box">
+            <div className="param-container">
               <div className="param-name">protocol</div>
-            </ArcherElement>
-          </div>
+            </div>
+          </ArcherElement>
 
-          <div className="param-container">
-            <ArcherElement id="hostname_box">
+          <ArcherElement id="hostname_box">
+            <div className="param-container">
               <div className="param-name">hostname</div>
-            </ArcherElement>
-          </div>
+            </div>
+          </ArcherElement>
           {parsed.port ? (
-            <div className="param-container">
-              <ArcherElement id="port_box">
+            <ArcherElement id="port_box">
+              <div className="param-container">
                 <div className="param-name">port</div>
-              </ArcherElement>
-            </div>
-          ) : null}
-          <div className="param-container">
-            <ArcherElement id="pathname_box">
-              <div className="param-name">pathname</div>
+              </div>
             </ArcherElement>
-          </div>
-          {parsed.search ? (
+          ) : null}
+          <ArcherElement id="pathname_box">
             <div className="param-container">
-              <ArcherElement id="search_box">
-                <div className="param-name">Search</div>
-              </ArcherElement>
+              <div className="param-name">pathname</div>
             </div>
+          </ArcherElement>
+          {parsed.search ? (
+            <ArcherElement id="search_box">
+              <div className="param-container">
+                <div className="param-name">Search</div>
+              </div>
+            </ArcherElement>
           ) : null}
           {parsed.hash ? (
-            <div className="param-container">
-              <ArcherElement id="hash_box">
+            <ArcherElement id="hash_box">
+              <div className="param-container">
                 <div className="param-name">hash</div>
-              </ArcherElement>
-            </div>
+              </div>
+            </ArcherElement>
           ) : null}
         </div>
       </ArcherContainer>

@@ -77,3 +77,8 @@
   align-items: center;
   justify-content: center;
 }
+.root-param {
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 7px 7px 14px #bebebe, -7px -7px 14px #ffffff;
+}
