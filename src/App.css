@@ -85,10 +85,13 @@
   position: relative;
 }
 .param-name {
-  margin-top: 1rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   position: absolute;
-  top: 3.5rem;
+  top: 4.5rem;
+  background: black;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
 }
 .robot-container {
   position: absolute;
