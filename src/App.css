@@ -55,17 +55,13 @@
   gap: 2rem;
 }
 .parsed-container > * {
-  flex: 1 1;
+  flex: 1;
   padding: 15px;
 }
 .param-container {
   display: flex;
   justify-content: center;
   border: 1px solid #cfcfcf;
-}
-.param-name {
-  font-weight: bold;
-  margin-top: 1rem;
 }
 .defaults {
   flex: 0;
@@ -86,4 +82,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+.param-name {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 3.5rem;
 }

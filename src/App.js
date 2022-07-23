@@ -23,8 +23,11 @@ function App() {
       navigator.clipboard.readText().then((text) => {
         if (text.length > 1) {
           let httpTest = httpRegex.match(text);
+          setUrl("");
           if (checkHttp(text)) {
-            setUrl(text);
+            setTimeout(() => {
+              setUrl(text);
+            }, 100);
           } else if (httpTest) {
             setUrl(`https://${text}`);
           } else {
@@ -67,7 +70,7 @@ function App() {
 
   return (
     <div className="app-container">
-      {url.includes("http") ? (
+      {url.length ? (
         <ParsedContainer parsed={parsed} />
       ) : (
         <div className="url-empty">
