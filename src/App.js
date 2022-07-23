@@ -7,7 +7,9 @@ import robotGif from "./assets/little-robot.gif";
 function App() {
   const [url, setUrl] = useState("");
   const [parsed, setParsed] = useState({});
-  const [robotMsg, setRobotMsg] = useState("Hello , Robot this side!");
+  const [robotMsg, setRobotMsg] = useState(
+    "Hey there! you wanna parse some URLs, eh?"
+  );
   console.log("parsed", parsed);
   // const [isUrlLoading, setIsUrlLoading] = useState(false);
   const httpRegex = "/^www./";
@@ -30,11 +32,11 @@ function App() {
           if (checkHttp(text)) {
             setTimeout(() => {
               setUrl(text);
-              setRobotMsg("Click on any parameter to know more about it!");
-            }, 100);
+              setRobotMsg("Now click on any parameter to know more about it!");
+            }, 50);
           } else if (httpTest) {
             setUrl(`https://${text}`);
-            setRobotMsg("Click on any parameter to know more about it!");
+            setRobotMsg("Now click on any parameter to know more about it!");
           } else {
             setRobotMsg(
               "Please paste an url like \n https://www.example.com or http://ex.com or www.ex.com"
@@ -78,9 +80,7 @@ function App() {
       {url.includes("http") ? (
         <ParsedContainer parsed={parsed} />
       ) : (
-        <div className="url-empty">
-          Paste any URL on this window and see the magic!
-        </div>
+        <div className="url-empty">Paste any URL on this page</div>
       )}
       <motion.div
         initial={{ opacity: 0 }}

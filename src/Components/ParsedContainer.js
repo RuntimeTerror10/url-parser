@@ -44,10 +44,10 @@ export const ParsedContainer = ({ parsed }) => {
             protocol
           </motion.div>
         </div>
-        {parameters.map((param) => {
+        {parameters.map((param, index) => {
           parsed[`${param}`] ? (k += 0.1) : (k = k);
           return parsed[`${param}`] ? (
-            <div className="param-group">
+            <div className="param-group" key={index}>
               <motion.div
                 animate={{
                   padding: "1rem",

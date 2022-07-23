@@ -108,3 +108,8 @@
 
   border-radius: 5px;
 }
+.url-empty {
+  font-size: 3.5rem;
+  font-weight: bold;
+  opacity: 0.2;
+}
