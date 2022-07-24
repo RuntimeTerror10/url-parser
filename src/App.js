@@ -104,7 +104,6 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="link-strip"></div>
       <a
         href="https://github.com/RuntimeTerror10/url-parser"
         target="_blank"
