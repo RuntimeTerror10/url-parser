@@ -1,7 +1,7 @@
 // import { ArcherContainer, ArcherElement } from "react-archer";
 import { motion } from "framer-motion";
 
-export const ParsedContainer = ({ parsed }) => {
+export const ParsedContainer = ({ parsed, robotParam }) => {
   const parameters = [
     "protocol",
     "hostname",
@@ -12,6 +12,10 @@ export const ParsedContainer = ({ parsed }) => {
   ];
   let k = 0,
     init = 2;
+
+  const handleParamClick = (param) => {
+    robotParam(param);
+  };
 
   return (
     <motion.div
@@ -27,21 +31,33 @@ export const ParsedContainer = ({ parsed }) => {
         animate={{ gap: "2rem" }}
         transition={{ delay: 0.8 }}
       >
-        {parameters.map((param, index) => {
+        {parameters.map((param) => {
           parsed[`${param}`] ? (k += 0.1) : (k = k);
 
           return parsed[`${param}`] ? (
-            <div className={`param-group param-${param}`} key={index}>
+            <button
+              onClick={() => {
+                handleParamClick(param);
+              }}
+              className="param-group"
+              key={param}
+            >
               <motion.div
                 animate={{
                   padding: "1rem",
                   boxShadow: "rgb(0 0 0 / 20%) 0px 0px 0px 3px",
                   borderRadius: "5px",
+                  pointerEvents: "auto",
+                  cursor: "pointer",
                 }}
                 transition={{ delay: 1.4 }}
                 className="root-param"
               >
-                <div>{parsed[`${param}`]}</div>
+                <div>
+                  {param === "protocol"
+                    ? parsed[`${param}`] + "//"
+                    : parsed[`${param}`]}
+                </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -54,7 +70,7 @@ export const ParsedContainer = ({ parsed }) => {
               >
                 {param}
               </motion.div>
-            </div>
+            </button>
           ) : null;
         })}
       </motion.div>
