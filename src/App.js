@@ -107,6 +107,7 @@ function App() {
       <a
         href="https://github.com/RuntimeTerror10/url-parser"
         target="_blank"
+        rel="noreferrer"
         className="github-link"
       >
         <svg style={{ width: "24px", height: "24px" }} viewBox="0 0 24 24">
