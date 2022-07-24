@@ -125,7 +125,7 @@
   font-weight: bold;
   opacity: 0.15;
 }
-.link-strip {
+/* .link-strip {
   position: absolute;
   top: -80px;
   right: -75px;
@@ -133,16 +133,16 @@
   height: 200px;
   transform: rotate(140deg);
   background: #191919;
-}
+} */
 .github-link {
-  color: #fafafa;
+  color: #191919;
   position: absolute;
   top: 0;
   right: 0;
   margin: 1.5rem;
-  transform: rotate(40deg) scale(1.4);
+  transform: scale(1.4);
   transition: all 0.25s ease-in-out;
 }
 .github-link:hover {
-  transform: rotate(40deg) scale(1.7);
+  transform: scale(1.7);
 }
