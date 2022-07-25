@@ -60,9 +60,12 @@
 }
 .param-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  border: 1px solid #cfcfcf;
+  align-items: center;
+  gap: 0.5rem;
 }
+
 .defaults {
   flex: 0;
   align-self: center;
@@ -94,9 +97,6 @@
 /* .param-group:hover {
   background: #cfcfcf;
 } */
-.pasted-url:hover .param-group {
-  opacity: 0.7;
-}
 
 .pasted-url .param-group:hover {
   opacity: 1;
@@ -168,4 +168,10 @@
   font-weight: 400;
   font-size: 0.4em;
   text-transform: uppercase;
+}
+.copy-btn {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: #191919;
 }

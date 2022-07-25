@@ -125,10 +125,10 @@ function App() {
       </motion.div>
       <div className="app-header">
         <div>
-          <span class="app-header__product-name">URL Parser</span>{" "}
-          <span class="app-header__by">by</span>{" "}
-          <span class="app-header__name">Parth Bhardwaj</span>{" "}
-          <span class="app-header__cw">(ChangWorks)</span>
+          <span className="app-header__product-name">URL Parser</span>{" "}
+          <span className="app-header__by">by</span>{" "}
+          <span className="app-header__name">Parth Bhardwaj</span>{" "}
+          <span className="app-header__cw">(ChangWorks)</span>
         </div>
       </div>
       {url.includes("http") ? (
