@@ -89,10 +89,19 @@
   font-size: 1.5rem;
   font-weight: bold;
   pointer-events: none;
+  transition: all 0.2s ease-in-out;
 }
 /* .param-group:hover {
   background: #cfcfcf;
 } */
+.pasted-url:hover .param-group {
+  opacity: 0.7;
+}
+
+.pasted-url .param-group:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
 .param-name {
   font-size: 1rem;
   position: absolute;
@@ -101,6 +110,8 @@
   color: white;
   padding: 0.5rem;
   border-radius: 0.3rem;
+  pointer-events: auto;
+  cursor: pointer;
 }
 .robot-container {
   position: absolute;
@@ -125,15 +136,7 @@
   font-weight: bold;
   opacity: 0.15;
 }
-/* .link-strip {
-  position: absolute;
-  top: -80px;
-  right: -75px;
-  width: 150px;
-  height: 200px;
-  transform: rotate(140deg);
-  background: #191919;
-} */
+
 .github-link {
   color: #191919;
   position: absolute;
