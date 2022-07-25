@@ -124,7 +124,12 @@ function App() {
         </a>
       </motion.div>
       <div className="app-header">
-        <div>URL Parser by Parth Bhardwaj (ChangWorks)</div>
+        <div>
+          <span class="app-header__product-name">URL Parser</span>{" "}
+          <span class="app-header__by">by</span>{" "}
+          <span class="app-header__name">Parth Bhardwaj</span>{" "}
+          <span class="app-header__cw">(ChangWorks)</span>
+        </div>
       </div>
       {url.includes("http") ? (
         <ParsedContainer parsed={parsed} robotParam={handleRobotParam} />
