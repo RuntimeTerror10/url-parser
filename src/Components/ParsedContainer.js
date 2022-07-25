@@ -11,7 +11,7 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
     "hash",
   ];
   let k = 0,
-    init = 2;
+    init = 1.1;
 
   const handleParamClick = (param) => {
     robotParam(param);
@@ -29,10 +29,10 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
         className="pasted-url"
         initial={{ gap: 0 }}
         animate={{ gap: "2rem" }}
-        transition={{ delay: 0.8 }}
+        transition={{ delay: 0.5 }}
       >
         {parameters.map((param) => {
-          parsed[`${param}`] ? (k += 0.1) : (k = k);
+          parsed[`${param}`] ? (k += 0.05) : (k = k);
 
           return parsed[`${param}`] ? (
             <button
@@ -50,7 +50,7 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
                   pointerEvents: "auto",
                   cursor: "pointer",
                 }}
-                transition={{ delay: 1.4 }}
+                transition={{ delay: 1 }}
                 className="root-param"
               >
                 <div>
