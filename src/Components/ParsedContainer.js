@@ -23,7 +23,7 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
-    }, 500);
+    }, 1000);
     const el = document.createElement("textarea");
     el.value = parsed[param];
     el.setAttribute("readonly", "");
