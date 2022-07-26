@@ -17,7 +17,7 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
     robotParam(param);
   };
 
-  const handleCopyParam = (event, param) => {
+  const handleCopyParam = (param) => {
     const el = document.createElement("textarea");
     el.value = parsed[param];
     el.setAttribute("readonly", "");
@@ -47,31 +47,19 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
 
           return parsed[`${param}`] ? (
             <div className="param-container" key={param}>
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
+              <button
+                className="copy-btn"
+                onClick={() => {
+                  handleCopyParam(param);
                 }}
-                transition={{ delay: (init += k) }}
               >
-                <button
-                  className="copy-btn"
-                  onClick={(event) => {
-                    handleCopyParam(event, param);
-                  }}
-                >
-                  <svg
-                    style={{ width: "24px", height: "24px" }}
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"
-                    />
-                  </svg>
-                </button>
-              </motion.div>
+                <svg className="copy-icon" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"
+                  />
+                </svg>
+              </button>
               <button
                 onClick={() => {
                   handleParamClick(param);

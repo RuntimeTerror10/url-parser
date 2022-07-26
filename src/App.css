@@ -83,6 +83,7 @@
 .param-group {
   padding: 0;
   display: flex;
+  z-index: 2;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -170,8 +171,21 @@
   text-transform: uppercase;
 }
 .copy-btn {
+  opacity: 0;
   border: 0;
+  position: relative;
+  top: 10px;
   background: transparent;
   cursor: pointer;
   color: #191919;
+  transition: 0.2s ease-in-out;
+}
+.copy-icon {
+  width: 24px;
+  height: 24px;
+  pointerevents: none;
+}
+.pasted-url .param-container:hover .copy-btn {
+  opacity: 1;
+  top: 0;
 }
