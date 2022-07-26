@@ -5,7 +5,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -21,8 +21,7 @@
 }
 
 .app-header {
-  position: absolute;
-  top: 0;
+  text-align: center;
   padding: 1rem 0;
   font-size: 2rem;
   font-weight: bold;
@@ -59,6 +58,7 @@
   padding: 15px;
 }
 .param-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,6 +76,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex: 1;
 }
 .root-param {
   /* padding: 1rem; */
@@ -115,8 +116,6 @@
   cursor: pointer;
 }
 .robot-container {
-  position: absolute;
-  bottom: 0;
   /* left: 0; */
   display: flex;
 }
@@ -173,12 +172,12 @@
 .copy-btn {
   opacity: 0;
   border: 0;
-  position: relative;
-  top: 10px;
+  position: absolute;
+  bottom: 3rem;
   background: transparent;
   cursor: pointer;
   color: #191919;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: 0.2s ease-in-out;
 }
 .copy-txt {
@@ -191,5 +190,5 @@
 }
 .param-container:hover .copy-btn {
   opacity: 1;
-  top: 0;
+  bottom: 4rem;
 }

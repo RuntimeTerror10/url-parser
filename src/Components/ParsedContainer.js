@@ -23,7 +23,7 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
-    }, 600);
+    }, 500);
     const el = document.createElement("textarea");
     el.value = parsed[param];
     el.setAttribute("readonly", "");
@@ -70,7 +70,7 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.15 }}
-                    className="copy-btn copy-txt"
+                    className="copy-txt"
                   >
                     Copied!
                   </motion.div>
