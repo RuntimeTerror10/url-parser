@@ -23,7 +23,7 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
-    }, 500);
+    }, 600);
     const el = document.createElement("textarea");
     el.value = parsed[param];
     el.setAttribute("readonly", "");
@@ -52,7 +52,13 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
           parsed[`${param}`] ? (k += 0.05) : (k = k);
 
           return parsed[`${param}`] ? (
-            <div className="param-container" key={param}>
+            <motion.div
+              initial={{ pointerEvents: "none" }}
+              animate={{ pointerEvents: "auto" }}
+              transition={{ delay: 1.4 }}
+              className="param-container"
+              key={param}
+            >
               <button
                 className="copy-btn"
                 onClick={() => {
@@ -60,7 +66,14 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
                 }}
               >
                 {isCopied ? (
-                  <div className="copy-btn copy-txt">Copied!</div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.15 }}
+                    className="copy-btn copy-txt"
+                  >
+                    Copied!
+                  </motion.div>
                 ) : (
                   <svg className="copy-icon" viewBox="0 0 24 24">
                     <path
@@ -105,7 +118,7 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
                   {param}
                 </motion.div>
               </button>
-            </div>
+            </motion.div>
           ) : null;
         })}
       </motion.div>

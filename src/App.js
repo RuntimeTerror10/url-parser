@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { ParsedContainer } from "./Components/ParsedContainer";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import robotGif from "./assets/little-robot.gif";
 
 function App() {
@@ -21,6 +21,13 @@ function App() {
     }
   };
 
+  const setRobotMessage = (msg) => {
+    setRobotMsg("");
+    setTimeout(() => {
+      setRobotMsg(msg);
+    }, 100);
+  };
+
   const keyDownHandler = (event) => {
     let charCode = String.fromCharCode(event.which).toLocaleLowerCase();
     if ((event.ctrlKey || event.metaKey) && charCode === "v") {
@@ -29,20 +36,23 @@ function App() {
           let httpTest = httpRegex.match(text);
           setUrl("");
           if (checkHttp(text)) {
+            setRobotMsg("");
             setTimeout(() => {
               setUrl(text);
               setRobotMsg("Now click on any parameter to know more about it!");
             }, 50);
           } else if (httpTest) {
             setUrl(`https://${text}`);
-            setRobotMsg("Now click on any parameter to know more about it!");
+            setRobotMessage(
+              "Now click on any parameter to know more about it!"
+            );
           } else {
-            setRobotMsg(
-              "Please paste an url like \n https://www.example.com or http://ex.com or www.ex.com"
+            setRobotMessage(
+              "Please paste a vaild URL like \n https://www.example.com or example.com"
             );
           }
         } else {
-          alert("Please copy an URL first");
+          setRobotMessage("Please copy an URL first");
         }
       });
     }
@@ -50,27 +60,27 @@ function App() {
 
   const handleRobotParam = (param) => {
     if (param === "protocol") {
-      setRobotMsg(
+      setRobotMessage(
         "The protocol is the first part of the URL. It is usually http or https."
       );
     } else if (param === "hostname") {
-      setRobotMsg(
+      setRobotMessage(
         "The hostname is the name of the website. It is usually the domain name."
       );
     } else if (param === "port") {
-      setRobotMsg(
+      setRobotMessage(
         "The port is the number of the port. It is usually 80 or 443."
       );
     } else if (param === "pathname") {
-      setRobotMsg(
+      setRobotMessage(
         "The pathname is the path of the URL. It is usually the path of the page."
       );
     } else if (param === "search") {
-      setRobotMsg(
+      setRobotMessage(
         "The search is the query string of the URL. It is usually the query string of the page."
       );
     } else if (param === "hash") {
-      setRobotMsg(
+      setRobotMessage(
         "The hash is the hash of the URL. It is usually the hash of the page."
       );
     }
@@ -134,26 +144,25 @@ function App() {
       {url.includes("http") ? (
         <ParsedContainer parsed={parsed} robotParam={handleRobotParam} />
       ) : (
-        <motion.div
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 0.15, scale: 1 }}
-          transition={{ duration: 0.15, delay: 1 }}
-          className="url-empty"
-        >
-          Paste any URL on this page
-        </motion.div>
+        <div className="url-empty">Paste any URL on this page</div>
       )}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="robot-container"
-      >
+      <div className="robot-container">
         <img src={robotGif} width="150" height="150" alt="robot" />
         <div className="robot-text-container">
-          <div className="robot-text">{robotMsg}</div>
+          {robotMsg ? (
+            <AnimatePresence>
+              <motion.div
+                initial={{ y: 50 }}
+                animate={{ y: 0 }}
+                exit={{ y: -50 }}
+                className="robot-text"
+              >
+                {robotMsg}
+              </motion.div>
+            </AnimatePresence>
+          ) : null}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
