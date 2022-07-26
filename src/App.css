@@ -115,6 +115,20 @@
   pointer-events: auto;
   cursor: pointer;
 }
+/* arrow */
+.param-name:before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  position: absolute;
+  top: -6px;
+  transform: rotate(45deg);
+  left: calc(50% - 7px);
+  background: black;
+  z-index: -1;
+}
 .robot-container {
   /* left: 0; */
   display: flex;
