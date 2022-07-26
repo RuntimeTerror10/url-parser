@@ -39,12 +39,14 @@ function App() {
             setRobotMsg("");
             setTimeout(() => {
               setUrl(text);
-              setRobotMsg("Now click on any parameter to know more about it!");
+              setRobotMsg(
+                "Now click on any URL property to know more about it!"
+              );
             }, 50);
           } else if (httpTest) {
             setUrl(`https://${text}`);
             setRobotMessage(
-              "Now click on any parameter to know more about it!"
+              "Now click on any URL property to know more about it!"
             );
           } else {
             setRobotMessage(
@@ -61,27 +63,27 @@ function App() {
   const handleRobotParam = (param) => {
     if (param === "protocol") {
       setRobotMessage(
-        "The protocol is the first part of the URL. It is usually http or https."
+        "The protocol property of the URL interface is a string representing the protocol scheme of the URL. It is the first part of the URL, before the colon."
       );
     } else if (param === "hostname") {
       setRobotMessage(
-        "The hostname is the name of the website. It is usually the domain name."
+        "The hostname property of the URL interface is a string containing the domain name of the URL. It is the name of the website."
       );
     } else if (param === "port") {
       setRobotMessage(
-        "The port is the number of the port. It is usually 80 or 443."
+        "The port property of the URL interface is a string containing the port number of the URL. It is usually 80 or 443."
       );
     } else if (param === "pathname") {
       setRobotMessage(
-        "The pathname is the path of the URL. It is usually the path of the page."
+        "The pathname property of the URL interface is a string containing an initial / followed by the path of the URL. It is usually the path of the page."
       );
     } else if (param === "search") {
       setRobotMessage(
-        "The search is the query string of the URL. It is usually the query string of the page."
+        "The search property of the URL interface is a search string, also called a query string, that is a string containing a '?' followed by the parameters of the URL."
       );
     } else if (param === "hash") {
       setRobotMessage(
-        "The hash is the hash of the URL. It is usually the hash of the page."
+        "The hash property of the URL interface is a string containing a '#' followed by the fragment identifier of the URL.It is usually the hash of the page."
       );
     }
   };
