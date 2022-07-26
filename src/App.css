@@ -178,14 +178,18 @@
   background: transparent;
   cursor: pointer;
   color: #191919;
+  font-size: 1.2rem;
   transition: 0.2s ease-in-out;
+}
+.copy-txt {
+  padding-bottom: 7px;
 }
 .copy-icon {
   width: 24px;
   height: 24px;
   pointerevents: none;
 }
-.pasted-url .param-container:hover .copy-btn {
+.param-container:hover .copy-btn {
   opacity: 1;
   top: 0;
 }
