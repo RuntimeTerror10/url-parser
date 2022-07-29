@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export const ParsedContainer = ({ parsed, robotParam }) => {
+export const ParsedContainer = ({ parsed, robotParam, paramCount }) => {
   const [isCopied, setIsCopied] = useState(false);
   const parameters = [
     "protocol",
@@ -45,7 +45,7 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
       <motion.div
         className="pasted-url"
         initial={{ gap: 0 }}
-        animate={{ gap: "2rem" }}
+        animate={{ gap: "3rem" }}
         transition={{ delay: 0.5 }}
       >
         {parameters.map((param) => {
@@ -57,6 +57,7 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
               animate={{ pointerEvents: "auto" }}
               transition={{ delay: 1.4 }}
               className="param-container"
+              style={{ maxWidth: `calc(100%/${paramCount})` }}
               key={param}
             >
               <button
@@ -100,11 +101,9 @@ export const ParsedContainer = ({ parsed, robotParam }) => {
                   transition={{ delay: 1 }}
                   className="root-param"
                 >
-                  <div>
-                    {param === "protocol"
-                      ? parsed[`${param}`] + "//"
-                      : parsed[`${param}`]}
-                  </div>
+                  {param === "protocol"
+                    ? parsed[`${param}`] + "//"
+                    : parsed[`${param}`]}
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}

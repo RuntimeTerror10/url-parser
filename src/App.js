@@ -10,6 +10,7 @@ function App() {
   const [robotMsg, setRobotMsg] = useState(
     "Hey there! you wanna parse some URLs, eh?"
   );
+  const [paramCount, setParamCount] = useState(0);
 
   const httpRegex = "/^www./";
 
@@ -98,6 +99,22 @@ function App() {
   useEffect(() => {
     if (url.startsWith("http")) {
       let tempObj = new URL(url);
+      //iterate through the object and get the values of the properties
+      let count = 0;
+      for (let key in tempObj) {
+        if (
+          tempObj[key].length &&
+          key !== "href" &&
+          key !== "origin" &&
+          key !== "host" &&
+          key !== "searchParams"
+        ) {
+          count++;
+          console.log(tempObj[key]);
+        }
+      }
+      console.log("count", count);
+      setParamCount(count);
       setParsed({
         origin: tempObj.origin,
         protocol: tempObj.protocol,
@@ -138,7 +155,11 @@ function App() {
         </div>
       </div>
       {url.includes("http") ? (
-        <ParsedContainer parsed={parsed} robotParam={handleRobotParam} />
+        <ParsedContainer
+          parsed={parsed}
+          robotParam={handleRobotParam}
+          paramCount={paramCount}
+        />
       ) : (
         <div>
           <div className="url-empty">Paste any URL on this page</div>
