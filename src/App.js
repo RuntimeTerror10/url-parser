@@ -140,7 +140,10 @@ function App() {
       {url.includes("http") ? (
         <ParsedContainer parsed={parsed} robotParam={handleRobotParam} />
       ) : (
-        <div className="url-empty">Paste any URL on this page</div>
+        <div>
+          <div className="url-empty">Paste any URL on this page</div>
+          <div className="mobile-msg">Works on desktop only</div>
+        </div>
       )}
       <div className="robot-container">
         <img src={robotGif} width="150" height="150" alt="robot" />

@@ -8,6 +8,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.mobile-msg {
+  display: none;
+}
 
 .App-logo {
   height: 40vmin;
@@ -205,4 +208,32 @@
 .param-container:hover .copy-btn {
   opacity: 1;
   bottom: 4rem;
+}
+
+@media (max-width: 720px) {
+  .robot-container,
+  .github-link {
+    opacity: 0;
+  }
+  .robot-text-container {
+    align-self: center;
+  }
+  .robot-container img {
+    display: none;
+  }
+  .url-empty {
+    display: none;
+  }
+  .mobile-msg {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0.5;
+  }
+  .app-header {
+    font-size: 1.5rem;
+  }
+  .robot-text {
+    display: none;
+  }
 }
