@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { ParsedContainer } from "./Components/ParsedContainer";
 import { motion, AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet";
 import robotGif from "./assets/little-robot.gif";
 
 function App() {
@@ -110,10 +111,8 @@ function App() {
           key !== "searchParams"
         ) {
           count++;
-          console.log(tempObj[key]);
         }
       }
-      console.log("count", count);
       setParamCount(count);
       setParsed({
         origin: tempObj.origin,
@@ -133,6 +132,9 @@ function App() {
 
   return (
     <div className="app-container">
+      <Helmet>
+        <title>URL Parser</title>
+      </Helmet>
       <a
         href="https://github.com/RuntimeTerror10/url-parser"
         target="_blank"
