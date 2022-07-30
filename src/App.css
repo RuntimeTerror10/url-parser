@@ -48,6 +48,7 @@
   font-size: 1.5em;
   width: 100%;
   max-width: 100%;
+  flex-wrap: wrap;
 }
 .parsed-container {
   display: flex;
@@ -70,6 +71,7 @@
   /* max-width: calc(100% / 4); */
   /* flex-grow: 1; */
   text-overflow: ellipsis;
+  min-width: fit-content;
 }
 
 .defaults {
@@ -147,10 +149,12 @@
 .robot-container {
   /* left: 0; */
   display: flex;
+  margin: 0 1rem 1rem 1rem;
 }
 .robot-text-container {
-  width: 50ch;
+  /* width: 50ch; */
   align-self: center;
+  width: fit-content;
 }
 .robot-text {
   /* width: max-content; */
@@ -215,7 +219,7 @@
 .copy-icon {
   width: 24px;
   height: 24px;
-  pointerevents: none;
+  pointer-events: none;
 }
 .param-container:hover .copy-btn {
   opacity: 1;
@@ -223,7 +227,6 @@
 }
 
 @media (max-width: 720px) {
-  .robot-container,
   .github-link {
     opacity: 0;
   }
@@ -231,21 +234,33 @@
     align-self: center;
   }
   .robot-container img {
-    display: none;
+    width: 100px;
+    height: 100px;
+  }
+  .robot-text {
+    padding: 0.5rem;
   }
   .url-empty {
-    display: none;
-  }
-  .mobile-msg {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    opacity: 0.5;
+    font-size: 2rem;
   }
   .app-header {
     font-size: 1.5rem;
   }
-  .robot-text {
+  .param-container {
+    min-width: auto;
+  }
+}
+@media (max-width: 480px) {
+  .robot-container img {
     display: none;
+  }
+  .robot-text {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 420px) {
+  .url-empty {
+    font-size: 1.2rem;
   }
 }

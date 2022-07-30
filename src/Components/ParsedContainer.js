@@ -1,9 +1,10 @@
 // import { ArcherContainer, ArcherElement } from "react-archer";
 import { useState } from "react";
 import { motion } from "framer-motion";
-
+import { useMediaQuery } from "../hooks/MediaQuery";
 export const ParsedContainer = ({ parsed, robotParam, paramCount }) => {
   const [isCopied, setIsCopied] = useState(false);
+  const isSmall = useMediaQuery("(max-width: 1300px)");
   const parameters = [
     "protocol",
     "hostname",
@@ -45,7 +46,7 @@ export const ParsedContainer = ({ parsed, robotParam, paramCount }) => {
       <motion.div
         className="pasted-url"
         initial={{ gap: 0 }}
-        animate={{ gap: "3rem" }}
+        animate={{ gap: isSmall ? "5rem" : "3rem" }}
         transition={{ delay: 0.5 }}
       >
         {parameters.map((param) => {
