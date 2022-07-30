@@ -48,6 +48,7 @@
   font-size: 1.5em;
   width: 100%;
   max-width: 100%;
+  flex-wrap: wrap;
 }
 .parsed-container {
   display: flex;
@@ -70,6 +71,7 @@
   /* max-width: calc(100% / 4); */
   /* flex-grow: 1; */
   text-overflow: ellipsis;
+  min-width: fit-content;
 }
 
 .defaults {
@@ -215,11 +217,17 @@
 .copy-icon {
   width: 24px;
   height: 24px;
-  pointerevents: none;
+  pointer-events: none;
 }
 .param-container:hover .copy-btn {
   opacity: 1;
   bottom: 4rem;
+}
+
+@media (max-width: 1288px) {
+  .pasted-url {
+    gap: 4rem;
+  }
 }
 
 @media (max-width: 720px) {
@@ -234,7 +242,7 @@
     display: none;
   }
   .url-empty {
-    display: none;
+    font-size: 2rem;
   }
   .mobile-msg {
     display: block;
@@ -247,5 +255,14 @@
   }
   .robot-text {
     display: none;
+  }
+  .param-container {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .url-empty {
+    font-size: 1.2rem;
   }
 }

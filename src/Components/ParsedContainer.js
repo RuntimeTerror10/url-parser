@@ -45,7 +45,7 @@ export const ParsedContainer = ({ parsed, robotParam, paramCount }) => {
       <motion.div
         className="pasted-url"
         initial={{ gap: 0 }}
-        animate={{ gap: "3rem" }}
+        animate={{ gap: "4rem" }}
         transition={{ delay: 0.5 }}
       >
         {parameters.map((param) => {

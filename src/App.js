@@ -95,7 +95,7 @@ function App() {
     return () => {
       window.removeEventListener("keydown", keyDownHandler);
     };
-  }, []);
+  }, [keyDownHandler]);
 
   useEffect(() => {
     if (url.startsWith("http")) {
@@ -165,7 +165,7 @@ function App() {
       ) : (
         <div>
           <div className="url-empty">Paste any URL on this page</div>
-          <div className="mobile-msg">Works on desktop only</div>
+          {/* <div className="mobile-msg">Works on desktop only</div> */}
         </div>
       )}
       <div className="robot-container">
